@@ -25,7 +25,10 @@
         <h2>¡Procesar, imprimir reportes!</h2>
         <div>
             <button id="btnMostrarFormulario">Registrar Nuevo Animal</button>
-            <button onclick="norecuerdoelnombre()">¡Procesar animal!</button>
+        
+            <input type="text" class="form-control" placeholder="Busca aminales aquí ">
+        
+            <button onclick="norecuerdoelnombre()">Buscar</button>
         </div>
     </div>
     <main>
@@ -38,7 +41,7 @@
     <div id="formulario-container" class="hidden">
         <div id="cerrar-formulario">X</div>
         <form id="formularioAnimal" action="/animal" method="POST">
-            <h2>Registrar Nuevo Producto</h2>
+            <h2>Registro Animal</h2>
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -47,10 +50,10 @@
                 <label for="tipo">Categoría:</label>
                 <select id="tipo" name="tipo" class="form-control" required>
                     <option value="">Seleccione</option>
-                    <option value="Carnico">Vacuno</option>
-                    <option value="Lacteos">Pecuario</option>
-                    <option value="Purina">Cunícola</option>
-                    <option value="Purina">Avícola</option>
+                    <option value="Vacuno">Vacuno</option>
+                    <option value="Pecuario">Pecuario</option>
+                    <option value="Cunicola">Cunícola</option>
+                    <option value="Avicola">Avícola</option>
                 </select>
             </div>
             <label for="fecha_registro">fecha Registro</label>
@@ -66,4 +69,8 @@
 
 
 </body>
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>   
 </html>
