@@ -123,8 +123,12 @@ button{
     flex-wrap: wrap;
 }
 
-#cent {
+.cent, #cent {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.formu{
+    width: 450px;
+}
+

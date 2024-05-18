@@ -7,10 +7,10 @@ export const getProductModel = async () => {
   return productos;
 };
 
-export const createProductModel = async (nombre, tipo, cantidad, fecha_registro, fecha_salida, id_animal) => {
+export const createProductModel = async (nombre, tipo, cantidad, fecha_registro, fecha_salida, id_animal, resp_registro) => {
   const query = {
-    text: "INSERT INTO producto (nombre, tipo, cantidad, fecha_registro, fecha_salida, id_animal) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-    values: [nombre, tipo, cantidad, fecha_registro, fecha_salida, id_animal],
+    text: "INSERT INTO producto (nombre, tipo, cantidad, fecha_registro, fecha_salida, id_animal, resp_registro) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+    values: [nombre, tipo, cantidad, fecha_registro, fecha_salida, id_animal, resp_registro],
   };
   const result = await con.connection.query(query);
   console.log(result, query);

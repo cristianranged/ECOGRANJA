@@ -10,5 +10,6 @@ router.use('/producto', Producto);
 router.use('/auth', Auth);
 router.use('/animal', Animal);
 router.use('/residuo', Waste);
+/*router.use('/avicola', avicola);*/
 
 export default router;

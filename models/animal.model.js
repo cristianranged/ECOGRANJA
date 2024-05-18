@@ -2,10 +2,10 @@ import pgService from "../services/pg.services.js";
 
 const con = new pgService();
 
-export const createAnimalModel = async (nombre, tipo, fecha_ingreso, fecha_sacrificio) => {
+export const createAnimalModel = async (nombre, tipo, fecha_ingreso, fecha_sacrificio, resp_registro) => {
   const query = {
-    text: "INSERT INTO animal (nombre, tipo, fecha_ingreso, fecha_sacrificio) VALUES ($1, $2, $3, $4) RETURNING *",
-    values: [nombre, tipo, fecha_ingreso, fecha_sacrificio],
+    text: "INSERT INTO animal (nombre, tipo, fecha_ingreso, fecha_sacrificio,peso,resp_registro) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+    values: [nombre, tipo, fecha_ingreso, fecha_sacrificio, resp_registro],
   };
   const result = await con.connection.query(query);
   

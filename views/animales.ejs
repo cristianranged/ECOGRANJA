@@ -6,7 +6,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animales</title>
+    <title>Vacuno</title>
     <script src="./animal.func.js"></script>
 </head>
 <body>
@@ -15,14 +15,16 @@
         
     </header>
     <div class="bar">
-        <nav>
-            <a href="/residuos">Residuos</a>
-            <a href="/bienvenido">Productos</a>
-            <a href="">Animales</a>
+        <nav class="nav justify-content-center">
+            <a class="nav-link" href="/residuos">Residuos</a>
+            <a class="nav-link" href="/bienvenido">Productos</a>
+            <a class="nav-link" href="#">Vacuno</a>
+           
+            <a class="nav-link" href="register.html">Registrar Usuario</a>
         </nav>
     </div>
     <div id="foot-block">
-        <h2>¡Procesar, imprimir reportes!</h2>
+        
         <div>
             <button id="btnMostrarFormulario">Registrar Nuevo Animal</button>
         
@@ -33,7 +35,7 @@
     </div>
     <main>
         <div id="first-block">
-            <h2 id="cent">Animales</h2>
+            <h2 id="cent">Vacuno</h2>
             <div id="animal-container">
             </div>
         </div>
@@ -43,25 +45,28 @@
         <form id="formularioAnimal" action="/animal" method="POST">
             <h2>Registro Animal</h2>
             <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
+              
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
             </div>
             <div class="form-group">
-                <label for="tipo">Categoría:</label>
-                <select id="tipo" name="tipo" class="form-control" required>
+                <label for="tipo" >Tipo:</label>
+                <select id="tipo" name="tipo" class="form-control"  required>
                     <option value="">Seleccione</option>
-                    <option value="Vacuno">Vacuno</option>
-                    <option value="Pecuario">Pecuario</option>
-                    <option value="Cunicola">Cunícola</option>
-                    <option value="Avicola">Avícola</option>
+                    <option value="Vacuno">Carne</option>
+                    <option value="Pecuario">Lechero</option>
+                    <option value="Cunicola">Doble proposito</option>
                 </select>
             </div>
-            <label for="fecha_registro">fecha Registro</label>
+            <label for="fecha_ingreso">Fecha ingreso:</label>
             <br>
-            <input type="date" id="fecha_registro" name="fecha_registro" value="<%= new Date().toISOString() %>">
+            <input type="date" id="fecha_ingreso" name="fecha_ingreso" value="<%= new Date().toISOString().split('T')[0] %>">
             <br>
             <input type="hidden" id="fecha_salida" name="fecha_salida" value="">
-
+            <br>
+            <div class="form-group">
+                <input type="text" id="nombre" name="nombre" placeholder="Responsable Registro" required>
+            </div>
+            
             <button type="submit">Registrar</button>
         </form>
     </div>

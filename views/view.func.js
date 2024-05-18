@@ -26,6 +26,32 @@ document.addEventListener('DOMContentLoaded', function() {
         var formularioContainer = document.getElementById('formulario-container');
         formularioContainer.style.display = 'none';
     }
+    function salir() {
+        var salida = document.getElementById('salir');
+        salida.addEventListener('click', function() {
+            // Hacer una solicitud GET a la ruta '/borrar-token' en el servidor
+            fetch('/borrar-token', {
+                method: 'GET',
+
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Token borrado exitosamente');
+                    window.location.reload();
+                } else {
+                    console.error('Error al borrar el token');
+                }
+            })
+            .catch(error => {
+                console.error('Error de red:', error);
+            });
+        });
+
+    }
+    
+    
+    salir();
+    
     function eliminarProduct(productId) {
         fetch(`http://localhost:3200/producto/${productId}`, {
             method: 'DELETE'
@@ -72,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>Categoría: ${producto.tipo}</p>
                 <p>Stock: ${producto.cantidad} KG</p>
                 <p>Registrado: ${formatDate(producto.fecha_registro)}</p>
+                <p>Responsable: ${producto.resp_registro}</p>
                 <button  onclick="editarProducto(${producto.id})">Editar</button>
                 <button  onclick="eliminarProducto${(producto.id)}">Eliminar</button>`;
             productContainer.appendChild(productBox);

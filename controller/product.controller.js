@@ -20,26 +20,24 @@ export const getProducto = async (req, res) => {
 
 export const createProducto = async (req, res) => {
     try {
-        const { nombre, tipo, cantidad, fecha_registro, fecha_salida, id_animal } = req.body;
+        const { nombre, tipo, cantidad, fecha_registro, fecha_salida, id_animal, resp_registro } = req.body;
         console.log(req.body.fecha_registro);
 
         const fechaSalida = fecha_salida.trim() !== '' ? fecha_salida : null;
         const idAnimal = id_animal.trim() !== '' ? id_animal : null;
 
-        if (!req.body.nombre || !req.body.tipo || !req.body.cantidad || !req.body.fecha_registro) {
+        if (!nombre || !tipo || !cantidad || !fecha_registro) {
             return res.status(400).send({
                 success: false,
-                msg: "Tooooodos los campos son obligatorios"
+                msg: "Todos los campos son obligatorios"
             });
         }
 
-        const nuevoProducto = await createProductModel(nombre, tipo, cantidad, fecha_registro, fechaSalida, idAnimal);
-
-        const nuevoProductoDatos = nuevoProducto;
+        const nuevoProducto = await createProductModel(nombre, tipo, cantidad, fecha_registro, fechaSalida, idAnimal, resp_registro);
 
         res.redirect('/bienvenido');
     } catch (error) {
-        console.log("desde controller ",error);
+        console.log("desde controller ", error);
         res.status(500).send({
             success: false,
             msg: "Error al crear el producto",
@@ -47,6 +45,7 @@ export const createProducto = async (req, res) => {
         });
     }
 };
+
 
 export const deleteProducto = async (req, res) => {
     try {

@@ -2,9 +2,9 @@ import * as AnimalModel from "../models/animal.model.js";
 
 export const createAnimal = async (req, res) => {
   try {
-    const { nombre, tipo, fecha_ingreso, fecha_sacrificio } = req.body;
+    const { nombre, tipo, fecha_ingreso, fecha_sacrificio,resp_registro } = req.body;
     console.log("Desde animal.controller", nombre,tipo);
-    const newAnimal = await AnimalModel.createAnimalModel(nombre, tipo, fecha_ingreso, fecha_sacrificio);
+    const newAnimal = await AnimalModel.createAnimalModel(nombre, tipo, fecha_ingreso, fecha_sacrificio,resp_registro);
     res.status(201).json(newAnimal);
   } catch (error) {
     res.status(500).json({ message: error.message });

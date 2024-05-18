@@ -86,6 +86,9 @@ export default class Server{
                 return res.status(401).send('Acceso no autorizado');
             }
         });
+        this.app.get('/borrar-token', (req, res) => {
+            res.clearCookie("token").send('Token borrado exitosamente.');
+          });
 
     }
 
